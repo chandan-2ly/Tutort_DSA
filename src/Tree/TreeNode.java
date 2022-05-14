@@ -18,7 +18,7 @@ public class TreeNode {
         right = _right;
     }
 
-    public void levelOrderTraversal(TreeNode root){
+    public static void levelOrderTraversal(TreeNode root){
         if (root == null)
             return;
         Queue<TreeNode> que = new LinkedList<>();
@@ -33,19 +33,19 @@ public class TreeNode {
             System.out.print(temp.val+" ");
         }
     }
-    public void inOrderTraversal(TreeNode root){
+    public static void inOrderTraversal(TreeNode root){
         if(root == null) return;
         if(root.left != null) inOrderTraversal(root.left);
         System.out.print(root.val+" ");
         if(root.right != null) inOrderTraversal(root.right);
     }
-    public void preOrderTraversal(TreeNode root){
+    public static void preOrderTraversal(TreeNode root){
         if(root == null) return;
         System.out.print(root.val+" ");
         if(root.left != null) preOrderTraversal(root.left);
         if(root.right != null) preOrderTraversal(root.right);
     }
-    public void postOrderTraversal(TreeNode root){
+    public static void postOrderTraversal(TreeNode root){
         if(root == null) return;
         if(root.left != null) postOrderTraversal(root.left);
         if(root.right != null) postOrderTraversal(root.right);
