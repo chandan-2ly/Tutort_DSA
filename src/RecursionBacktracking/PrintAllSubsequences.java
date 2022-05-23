@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PrintAllSubsequences {
     public static void main(String[] args){
-        int[] arr = {1,2,3,4};
+        int[] arr = {1,2,2};
         List<List<Integer>> result = getSubsequences(arr);
         System.out.println(result);
     }
