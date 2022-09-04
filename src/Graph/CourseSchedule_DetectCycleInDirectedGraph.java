@@ -15,8 +15,8 @@ public class CourseSchedule_DetectCycleInDirectedGraph {
     }
 
     private static boolean canFinish(int numCourses, int[][] prerequisites) {
-        boolean[] visited = new boolean[numCourses];
-        Arrays.fill(visited, false);
+        int[] visited = new int[numCourses];
+        Arrays.fill(visited, 0);
 
         ArrayList<ArrayList<Integer>> adj = new ArrayList();
         for(int i = 0; i < numCourses; i++){
@@ -28,32 +28,36 @@ public class CourseSchedule_DetectCycleInDirectedGraph {
         }
 
         for(int i = 0; i < numCourses; i++){
-            if(!visited[i])
+            if(visited[i] == 0)
                 if(bfsCycleExist(i, visited, adj))
                     return false;
         }
         return true;
     }
 
-    private static boolean bfsCycleExist(int src, boolean[] visited, ArrayList<ArrayList<Integer>> adj) {
+    private static boolean bfsCycleExist(int src, int[] visited, ArrayList<ArrayList<Integer>> adj) {
+//        if(visited[src] == 2)
+//            return true;
+        //visited[src] = 2;
+
         Queue<Integer> queue = new LinkedList<>();
         queue.add(src);
-        visited[src] = true;
+        visited[src] = 2;
 
         while(!queue.isEmpty()){
             int u = queue.poll();
             if(adj.get(u).size() > 0)
             {
                 for(Integer next : adj.get(u)){
-                    if(!visited[next]){
-                        queue.add(next);
-                        visited[next] = true;
-                    }
-                    else
+                    if(visited[next] > 0)
                         return true;
+                    else {
+                        queue.add(next);
+                        visited[next] = 2;
+                    }
                 }
             }
-
+            visited[u] = 1;
         }
         return false;
     }

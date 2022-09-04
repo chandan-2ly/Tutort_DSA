@@ -34,19 +34,25 @@ public class CycleDetectionInUnDirectedGraphBFS {
         adj.get(4).add(3);*/
 
         //test case 2
-        int V = 4;
-        adj.add(new ArrayList<>());
+//        int V = 4;
+//        adj.add(new ArrayList<>());
+//
+//        adj.add(new ArrayList<>());
+//        adj.get(1).add(2);
+//
+//        adj.add(new ArrayList<>());
+//        adj.get(2).add(1);
+//        adj.get(2).add(3);
+//
+//        adj.add(new ArrayList<>());
+//        adj.get(3).add(2);
 
+        //test case 3
         adj.add(new ArrayList<>());
-        adj.get(1).add(2);
+        adj.get(0).add(1);
+        adj.get(0).add(0);
 
-        adj.add(new ArrayList<>());
-        adj.get(2).add(1);
-        adj.get(2).add(3);
-
-        adj.add(new ArrayList<>());
-        adj.get(3).add(2);
-
+        int V = 2;
         boolean result = isCycleExistBFS(adj, V);
         System.out.println(result);
     }
